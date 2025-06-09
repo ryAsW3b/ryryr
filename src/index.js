@@ -4,6 +4,9 @@ require('dotenv').config('./.env');
 const axios = require('axios');
 // Check if is up to date
 const { version } = require('.././package.json');
+client.on("ready", async () => {
+  console.log("Online!")
+})
 axios.get('https://api.github.com/repos/CorwinDev/Discord-Bot/releases/latest').then(res => {
     if (res.data.tag_name !== version) {
         console.log(chalk.red.bgYellow(`Votre bot n'est pas à jour ! Veuillez le mettre à jour avec la dernière version !`, version + ' -> ' + res.data.tag_name));
